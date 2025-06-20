@@ -1,0 +1,24 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: giropops-senhas-helm
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://eduardothums.github.io/giropops-helm-repo
+    helm:
+      releaseName: giros
+    chart: giropops-senhas
+    targetRevision: 0.1.2
+    # repoURL: https://github.com/EduardoThums/descomplicando-gitops-no-kubernetes-argocd.git
+    # targetRevision: main
+    # path: giropops-senhas/helm
+  destination:
+    namespace: teste
+    server: https://kubernetes.default.svc
+  syncPolicy:
+    automated:
+      selfHeal: true # ensures tha the state of the application in the repo is respected
+    syncOptions:
+      - CreateNamespace=true
