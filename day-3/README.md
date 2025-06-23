@@ -13,3 +13,9 @@ The generators are where the ApplicationSet will looking for to generate the App
 - git
 - gitfile
 - pull request
+
+### Pull Request
+
+Keep looking for pull requests in different VCS plataforms and generate applications based on their values.
+
+Usefull when the team want to create a environment per PR to test features and fixes.
